@@ -83,15 +83,12 @@ class MenuCliente:
                     # Solicitar al usuario si desea marcar la película como favorita
                     respuesta = input("¿Desea marcar esta película como favorita? (s/n): ")
                     if respuesta.lower() == "s":
-                        peli.correo_usuario = self.correo  # Asigna el correo del usuario a pelicula.correo_usuario
-                        self.lista_favoritas.agregar(pelicula)  # Agrega la película a la lista de favoritos
-
-
-                        
-                        
+                  
+                        self.agregar_pelicula_favorita(pelicula)  # Agrega la película a la lista de favoritos
+  
     def agregar_pelicula_favorita(self, pelicula):
-        pelicula.correo_usuario = self.correo  # Asigna el correo del usuario a pelicula.correo_usuario
-        self.lista_peliculas_favoritas.agregar(pelicula)  # Agrega la película a la lista de favoritos del usuario
+        self.correo_usuario = self.correo  # Asigna el correo del usuario a pelicula.correo_usuario
+        self.lista_favoritas.agregar(pelicula)  # Agrega la película a la lista de favoritos del usuario
         print("Película agregada a tus favoritos.")
 
      
