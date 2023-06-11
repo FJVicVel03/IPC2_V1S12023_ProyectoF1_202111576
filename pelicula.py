@@ -7,6 +7,7 @@ class Pelicula:
         self.hora = hora
         self.siguiente = None
         self.anterior = None
+        self.correo_usuario = None
 
 
 class Categoria:

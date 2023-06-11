@@ -1,5 +1,6 @@
 from sesion import InicioSesion
 from pelicula import ListaDoblementeEnlazadaCircular
+from menu_cliente import MenuCliente
 import xml.etree.ElementTree as ET
 
 class Main:
@@ -37,7 +38,7 @@ class Main:
             if opc == "1":
                 print("Ha seleccionado Iniciar Sesión")
                 sesion = InicioSesion()
-
+                
                 correo = input("Ingrese su correo: ")
                 contrasena = input("Ingrese su contraseña: ")
 
@@ -49,7 +50,8 @@ class Main:
                         #aquí va el menú de administrador
                         pass
                     elif rol == "cliente":
-                        #aquí va el menú de cliente
+                        cliente = MenuCliente(lista_peliculas, correo)
+                        cliente.mostrar()
                         pass
                 else:
                     print("Correo o contraseña incorrectos.")
@@ -98,7 +100,7 @@ class Main:
                 peliculas = lista_peliculas.obtener_peliculas(categoria_elegida)
                 print("Películas en la categoría", categoria_elegida + ":")
                 for pelicula in peliculas:
-                    print("-", pelicula)
+                    print("-", pelicula, "({} {})".format(fecha, hora))
 
             else:
                 print("Opción inválida. Saliendo del programa.")
