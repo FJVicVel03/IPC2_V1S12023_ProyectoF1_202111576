@@ -1,6 +1,7 @@
 from sesion import InicioSesion
 from pelicula import ListaDoblementeEnlazadaCircular
 from menu_cliente import MenuCliente
+from menu_admin import MenuAdmin
 import xml.etree.ElementTree as ET
 
 class Main:
@@ -47,7 +48,8 @@ class Main:
                 if rol is not None:
                     print("Tu rol es:", rol)
                     if rol == "administrador":
-                        #aquí va el menú de administrador
+                        admin = MenuAdmin()
+                        admin.mostrar()         
                         pass
                     elif rol == "cliente":
                         cliente = MenuCliente(lista_peliculas, correo)

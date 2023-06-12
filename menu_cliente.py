@@ -1,6 +1,7 @@
 from pelicula import ListaDoblementeEnlazadaCircular
 from pelicula import Pelicula
 from favoritas import ListaEnlazada
+import copy
 
 import xml.etree.ElementTree as ET
 
@@ -73,18 +74,19 @@ class MenuCliente:
                 # Obtener y mostrar las películas de la categoría elegida
                 peliculas = lista_peliculas.obtener_peliculas(categoria_elegida)
                 print("Películas en la categoría", categoria_elegida + ":")
-                for pelicula in peliculas:
-                    print("Detalles de Películas:")
+                for i, pelicula in enumerate(peliculas, start=1):
+                    print("Detalles de Películas:", i)
                     print("Titulo: ", titulo)
                     print("Año: ", anio)
                     print("Hora: ", hora)
                     print("Fecha: ", fecha)
+                    print("-----------------")
                     
                     # Solicitar al usuario si desea marcar la película como favorita
                     respuesta = input("¿Desea marcar esta película como favorita? (s/n): ")
                     if respuesta.lower() == "s":
-                  
-                        self.agregar_pelicula_favorita(pelicula)  # Agrega la película a la lista de favoritos
+                        pelicula_favorita = copy.deepcopy(pelicula)
+                        self.agregar_pelicula_favorita(pelicula_favorita)  # Agrega la película a la lista de favoritos
   
     def agregar_pelicula_favorita(self, pelicula):
         self.correo_usuario = self.correo  # Asigna el correo del usuario a pelicula.correo_usuario
