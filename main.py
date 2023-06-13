@@ -27,6 +27,8 @@ class Main:
 
                 lista_peliculas.agregar_pelicula(nombre_categoria, titulo, director, anio, fecha, hora)
 
+        sesion = None  # Inicializar la variable fuera del bucle
+
         while True:
             print("Bienvenido, seleccione una opción:")
             print("1 - Iniciar Sesión")
@@ -59,6 +61,10 @@ class Main:
                     print("Correo o contraseña incorrectos.")
             
             elif opc == "2":
+                if sesion is None:
+                    print("Debe iniciar sesión antes de registrar un usuario.")
+                    continue
+
                 print("Ha seleccionado Registrar Usuario")
                 nombre = input("Ingrese el nombre: ")
                 apellido = input("Ingrese apellido: ")
